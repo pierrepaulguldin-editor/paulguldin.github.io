@@ -389,7 +389,7 @@ body.home-page {
 
         /* Hauteur du filet (en % de la hauteur de l'image) :
            la phrase « Touchez la balle » est centrée sur cette ligne */
-        --filet-y: 58%;
+        --filet-y: 57%;
     }
 
     .mobile-frame img { width: 100%; height: 100%; }
