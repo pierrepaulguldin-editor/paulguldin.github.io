@@ -30,6 +30,11 @@
         <div class="mobile-frame">
             <img src="images/entree-mobile.jpg" alt="Image d'entrée du site">
             <a class="mobile-enter" href="jeu.html"><img src="images/titre-vert.svg" alt="3´20´´ — entrer sur le site"></a>
+            <!-- Zone tactile qui couvre toute la balle, avec l'invitation « Touchez la balle »
+                 (le titre reste le bouton accessible au clavier et aux lecteurs d'écran) -->
+            <a class="mobile-ball" href="jeu.html" tabindex="-1" aria-hidden="true">
+                <span class="mobile-hint">Touchez la balle</span>
+            </a>
         </div>
     </main>
 
