@@ -1,137 +1,229 @@
 /* ==========================================================================
-   CHARTE GRAPHIQUE COMPACTE & SOBRE (Pas de coins arrondis, style minimaliste)
+   3'20'' — Feuille de style
+   Mot d'ordre : sobriété (angles droits, lignes fines, pas d'arrondis)
    ========================================================================== */
 
-/* Variables de couleurs globales */
+/* Variables globales */
 :root {
-    --bg-color: #1A3020;         /* Vert sapin foncé et sobre */
-    --text-color: #FFFFCC;       /* Jaune pâle très doux pour la lecture */
-    --accent-color: #E6C645;     /* Jaune plus soutenu pour le survol/actif */
-    --border-color: #3D5A42;     /* Vert moyen pour les bordures */
+    --bg-color: #1A3020;         /* Vert sapin foncé */
+    --text-color: #FFFFCC;       /* Jaune pâle */
+    --accent-color: #E6C645;     /* Jaune soutenu (survol / actif) */
+    --border-color: #3D5A42;     /* Vert moyen (bordures) */
+    --line-color: #5A8263;       /* Vert un peu plus clair (ligne sous le titre) */
     --input-bg: #243D2B;         /* Fond des champs */
+    --home-bg: #DCEAF7;          /* Bleu pâle (entrée PC) */
+    --home-text: #000000;
+    --dark-green: #0F2416;       /* Vert très foncé (titre entrée smartphone) */
+    --font-main: 'Aptos', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Base de la page */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
+    margin: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Aptos', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-main);
+    font-size: 15px;
     line-height: 1.6;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-/* Structure globale */
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--accent-color); }
+
 .container {
     width: 100%;
-    max-width: 800px; /* Largeur de lecture optimale pour ordinateur */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+main.container {
+    flex: 1;                 /* pousse le pied de page vers le bas */
+    padding-bottom: 40px;
 }
 
 /* ==========================================================================
-   BANDEAU DE TITRE & NAVIGATION (Pages 2 à 6)
+   EN-TÊTE : titre 3'20'' (toutes les pages sauf l'entrée)
    ========================================================================== */
-.site-header {
-    border-bottom: 1px solid var(--border-color);
-    padding-top: 5px;
+.site-header { padding-top: 30px; }
+
+.site-title {
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--line-color);
+    text-align: center;
+    line-height: 0;
 }
 
-/* Assure que le lien de l'image ne modifie pas sa disposition */
-.header-logo-link {
-    display: block;
+/* Titre « 3´20´´ » : image vectorielle (nette à toutes les tailles),
+   lien vers la page d'entrée */
+.site-title a { display: inline-block; }
+
+.site-title img {
+    height: 75px;            /* équivalent d'un corps 80 */
+    width: auto;
 }
 
-.site-header .main-title {
-    margin-bottom: 1px;
-}
-
-.main-nav {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.main-nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.main-nav a:hover, 
-.main-nav a.active {
-    color: var(--accent-color);
-    border-bottom-color: var(--accent-color);
-}
-
-/* Centrage de la nouvelle image de titre */
-.header-logo-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 20px; /* Espace sous l'image avant le menu */
-}
-
-/* Style de l'image pour qu'elle s'adapte proprement */
-.header-logo {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Typography Standard */
-.main-title {
-    font-size: 60px;
-    font-weight: normal;
-    margin: 0 0 12px 0;
-    line-height: 1;
-}
-
+/* ==========================================================================
+   TYPOGRAPHIE
+   ========================================================================== */
 h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: normal;
     color: var(--accent-color);
-    margin-top: 40px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
+    margin: 35px 0 15px;
     padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
 }
 
-p {
-    font-size: 15px;
-    margin-bottom: 20px;
+h3 {
+    font-size: 17px;
+    font-weight: normal;
+    color: var(--accent-color);
+    margin: 25px 0 10px;
+}
+
+p { margin: 0 0 18px; }
+
+/* Respiration dans un chapitre (ligne vide dans le texte d'origine) */
+p.suite { margin-top: 36px; }
+
+/* Listes (matériel, étapes du jeu) */
+ul, ol {
+    margin: 0 0 18px;
+    padding-left: 1.6em;
+}
+
+li { margin-bottom: 8px; }
+
+li::marker { color: var(--accent-color); }
+
+/* Phrase de conclusion, séparée par une fine ligne */
+.conclusion {
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-style: italic;
+    text-align: center;
 }
 
 /* ==========================================================================
-   BOUTONS (Style sobre, angles droits)
+   ONGLETS (100 % CSS : boutons radio cachés + étiquettes)
    ========================================================================== */
-.btn-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+.tabs { margin: 30px 0 0; }
+
+/* Les boutons radio restent invisibles mais accessibles au clavier */
+.tabs > input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tabs-menu {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs-menu label {
+    padding: 10px 20px;
+    margin-bottom: -1px;
+    border: 1px solid transparent;
+    border-bottom: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.tabs-menu label:hover { color: var(--accent-color); }
+
+/* Onglet actif */
+#tab-jeu:checked     ~ .tabs-menu label[for="tab-jeu"],
+#tab-regles:checked  ~ .tabs-menu label[for="tab-regles"],
+#tab-genese:checked  ~ .tabs-menu label[for="tab-genese"],
+#tab-contact:checked ~ .tabs-menu label[for="tab-contact"] {
+    border-color: var(--border-color);
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Contour visible quand on navigue au clavier */
+#tab-jeu:focus-visible     ~ .tabs-menu label[for="tab-jeu"],
+#tab-regles:focus-visible  ~ .tabs-menu label[for="tab-regles"],
+#tab-genese:focus-visible  ~ .tabs-menu label[for="tab-genese"],
+#tab-contact:focus-visible ~ .tabs-menu label[for="tab-contact"] {
+    outline: 1px solid var(--accent-color);
+    outline-offset: -4px;
+}
+
+/* Contenus des onglets */
+.tab-panel {
+    display: none;
+    padding: 5px 25px 10px;
+    border: 1px solid var(--border-color);
+    border-top: none;
+}
+
+.tab-panel > h2:first-child { margin-top: 20px; }
+
+#tab-jeu:checked     ~ #panel-jeu,
+#tab-regles:checked  ~ #panel-regles,
+#tab-genese:checked  ~ #panel-genese,
+#tab-contact:checked ~ #panel-contact {
+    display: block;
+}
+
+/* ==========================================================================
+   FORMULAIRE DE CONTACT
+   ========================================================================== */
+.contact-form {
+    display: flex;
+    flex-direction: column;
     gap: 15px;
-    margin: 30px 0;
+    max-width: 500px;
+    margin: 20px 0;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 13px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    color: var(--text-color);
+    padding: 10px;
+    font-family: var(--font-main);
+    font-size: 14px;
+}
+
+.contact-form textarea { min-height: 150px; resize: vertical; }
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 1px solid var(--accent-color);
 }
 
 .btn-sobre {
+    align-self: flex-start;
     background-color: transparent;
     color: var(--text-color);
     border: 1px solid var(--text-color);
-    padding: 12px 20px;
-    font-family: 'Aptos', sans-serif;
+    border-radius: 0;
+    padding: 10px 24px;
+    font-family: var(--font-main);
     font-size: 14px;
     cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
     transition: all 0.2s ease;
 }
 
@@ -140,183 +232,200 @@ p {
     color: var(--bg-color);
 }
 
-/* Aligne le titre H2 et le bouton sur la même ligne */
-.title-action-bar {
+/* ==========================================================================
+   PIED DE PAGE (toutes les pages sauf l'entrée)
+   ========================================================================== */
+.site-footer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 20px 25px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; /* Aligne le bas du bouton avec le bas du titre */
-    margin-top: 40px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 5px;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 12px;
 }
 
-/* Supprime la bordure par défaut du H2 pour utiliser celle de la barre globale */
-.title-action-bar h2 {
-    margin: 0;
-    border-bottom: none;
-    padding-bottom: 0;
+.site-footer::before {
+    /* fine ligne alignée sur la largeur du texte */
+    content: "";
+    flex-basis: 100%;
+    border-top: 1px solid var(--border-color);
+    margin-bottom: 5px;
 }
 
-/* Ajustement de la taille du bouton pour l'intégration en ligne */
-.btn-download {
-    padding: 6px 16px; /* Plus compact pour s'aligner élégamment avec le titre */
-    font-size: 13px;
-}
+.site-footer p { margin: 0; }
 
-
-/* ==========================================================================
-   ONGLETS (Bords carrés, pas d'arrondis)
-   ========================================================================== */
-.tabs-container {
-    margin: 30px 0;
-}
-
-.tabs-menu {
-    display: flex;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.tab-link {
-    background: transparent;
-    border: 1px solid transparent;
-    border-bottom: none;
+.site-footer a {
     color: var(--text-color);
-    padding: 10px 20px;
-    font-family: 'Aptos', sans-serif;
-    font-size: 14px;
-    cursor: pointer;
-    margin-bottom: -1px;
-    transition: all 0.2s ease;
+    text-decoration: none;
 }
 
-.tab-link:hover {
-    color: var(--accent-color);
-}
-
-.tab-link.active {
-    border-color: var(--border-color);
-    background-color: var(--bg-color);
-    color: var(--accent-color);
-    font-weight: bold;
-}
-
-.tab-content {
-    display: none;
-    border: 1px solid var(--border-color);
-    border-top: none;
-    padding: 20px;
-}
-
-.tab-content.active {
-    display: block;
-}
+.site-footer a:hover { color: var(--accent-color); }
 
 /* ==========================================================================
-   PAGE D'ENTRÉE SPÉCIFIQUE (index.html conserve son fond bleu d'origine)
+   PAGE D'ENTRÉE (index.html)
    ========================================================================== */
 body.home-page {
-    background-color: #DCEAF7;
-    color: #000000;
+    background-color: var(--home-bg);
+    color: var(--home-text);
     justify-content: center;
+    align-items: center;
 }
 
-body.home-page .main-title,
-body.home-page .quote-text,
-body.home-page .footer {
-    color: #000000;
+/* --- Version PC --- */
+.home-desktop { padding: 30px 20px; }
+
+.home-quote {
+    margin: 0 0 8px;
+    font-size: 20px;
+    text-align: right;
 }
 
-body.home-page .image-wrapper {
-    position: relative;
-    display: inline-block;
-}
+.image-wrapper { position: relative; }
 
-body.home-page .main-image {
-    display: block;
+.main-image {
+    width: auto;
     max-width: 100%;
-    height: auto;
+    max-height: 80vh;        /* l'image tient dans l'écran */
 }
 
-body.home-page .interactive-button {
+/* Bouton d'entrée au centre de l'image
+   (ajuster top/left si le centre visuel de l'image est décalé) */
+.enter-button {
     position: absolute;
-    top: 48.5%;
-    left: 50.2%;
+    top: 49.1%;              /* texte centré verticalement entre le bas du filet et la ligne de service */
+    left: 50.2%;             /* la ligne blanche centrale du court passe entre le ´ et le 2 */
+    width: 37.25%;           /* ≈ 2,5 x la taille d'origine : le texte occupe ~75 % de l'espace disponible */
     transform: translate(-50%, -50%);
-    display: block;
 }
 
-body.home-page .interactive-button img {
-    display: block;
-    transition: opacity 0.3s ease;
-}
+.enter-button img { width: 100%; }
 
-body.home-page .interactive-button .btn-hover {
+/* Fondu enchaîné automatique entre les deux teintes */
+.enter-button .btn-img-2 {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+    animation: fondu 6s ease-in-out infinite;
 }
 
-body.home-page .interactive-button:hover .btn-default { opacity: 0; }
-body.home-page .interactive-button:hover .btn-hover { opacity: 1; }
-
-body.home-page .quote-text {
-    font-size: 24px;
-    margin: 1px 0 40px 0;
-    text-align: right;
+@keyframes fondu {
+    0%, 35%  { opacity: 0; }
+    50%, 85% { opacity: 1; }
+    100%     { opacity: 0; }
 }
 
-body.home-page .disclaimer {
-    text-align: justify;
+.enter-button:focus-visible { outline: 1px solid var(--home-text); }
+
+.enter-hint {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--home-text);
+    text-decoration: none;
 }
+
+.enter-hint:hover { text-decoration: underline; }
+
+/* --- Version smartphone (cachée sur PC) --- */
+.home-mobile { display: none; }
 
 /* ==========================================================================
-   FOOTER STANDARD & FORMULAIRE CONTACT
+   SMARTPHONE
    ========================================================================== */
-.site-footer {
-    margin-top: auto;        /* Pousse le footer vers le bas */
-    margin-left: auto;       /* Centre horizontalement */
-    margin-right: auto;      /* Centre horizontalement */
-    width: 100%;             /* Prend toute la largeur disponible */
-    max-width: 800px;        /* S'aligne sur la largeur max de lecture */
-    padding-top: 40px;
-    padding-bottom: 20px;
-    border-top: 1px solid var(--border-color);
-    font-size: 9px;
-    box-sizing: border-box;  /* Évite que le padding ne déforme la largeur */
+@media (max-width: 768px) {
+    /* Entrée : l'image remplit tout l'écran, le titre sert de bouton */
+    .home-desktop { display: none; }
+
+    /* L'image est toujours affichée en entier (les phrases en haut et en bas
+       ne sont jamais coupées). Si l'écran n'a pas exactement ses proportions,
+       une version floutée de la même image comble les bords. */
+    .home-mobile {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+    }
+
+    .home-mobile::before {
+        content: "";
+        position: absolute;
+        inset: -30px;
+        background: url('images/entree-mobile.jpg') center / cover no-repeat;
+        filter: blur(20px);
+    }
+
+    /* Cadre aux proportions exactes de l'image (580 x 1228) */
+    .mobile-frame {
+        position: relative;
+        width: min(100vw, 100dvh * 580 / 1228);
+        aspect-ratio: 580 / 1228;
+        container-type: inline-size;
+    }
+
+    .mobile-frame img { width: 100%; height: 100%; }
+
+    /* Bouton « 3´20´´ » : dans le ciel, posé juste au-dessus de l'horizon
+       (positions en % de l'image 580 x 1228, selon la maquette) */
+    .mobile-enter {
+        position: absolute;
+        top: 41.65%;
+        left: 22.3%;
+        width: 71.4%;
+        display: block;
+    }
+
+    .mobile-enter img { width: 100%; }
+
+    .mobile-enter:focus-visible { outline: 1px solid var(--dark-green); }
 }
 
-.site-footer .copyright {
-    margin: 0 0 10px 0;
+@media (max-width: 600px) {
+
+    /* Densification : pas de cadre autour du contenu, marges réduites */
+    .container { padding: 0 16px; }
+    .site-header { padding-top: 18px; }
+    .site-title { padding-bottom: 10px; }
+    .site-title img { height: 48px; }
+
+    .tabs { margin-top: 18px; }
+    /* Onglets : même rendu que sur PC, sur une seule ligne */
+    .tabs-menu label {
+        flex: 1 1 auto;
+        padding: 8px 4px;
+        font-size: 13px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .tab-panel {
+        padding: 4px 0 0;
+        border: none;
+    }
+
+    .tab-panel > h2:first-child { margin-top: 18px; }
+    h2 { font-size: 19px; margin: 26px 0 10px; }
+    p, li { line-height: 1.5; }
+    p { margin-bottom: 14px; }
+    ul, ol { padding-left: 1.3em; }
+    li { margin-bottom: 6px; }
+    p.suite { margin-top: 26px; }
+    .conclusion { margin-top: 26px; padding-top: 14px; }
+
+    main.container { padding-bottom: 24px; }
+    .site-footer { padding: 10px 16px 18px; }
 }
 
-.site-footer .disclaimer {
-    margin: 0;
-    text-align: justify;
-    line-height: 1.4;
-}
-
-/* Formulaire simple */
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin-top: 20px;
-}
-
-.contact-form input, 
-.contact-form textarea {
-    background-color: var(--input-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-color);
-    padding: 10px;
-    font-family: 'Aptos', sans-serif;
-    font-size: 14px;
-}
-
-.contact-form input:focus, 
-.contact-form textarea:focus {
-    outline: 1px solid var(--accent-color);
+/* Pas d'animation pour qui l'a désactivée dans son système */
+@media (prefers-reduced-motion: reduce) {
+    .enter-button .btn-img-2 { animation: none; }
 }
