@@ -342,6 +342,15 @@ body.home-page {
     /* Entrée : l'image remplit tout l'écran, le titre sert de bouton */
     .home-desktop { display: none; }
 
+    /* v6.1 — Même référence de hauteur que .home-mobile (100dvh = hauteur
+       réellement visible). Avant, le body (100vh, plus haut que l'écran quand
+       la barre d'adresse est affichée) décalait l'image vers le bas. */
+    body.home-page {
+        min-height: 100vh;       /* repli pour les anciens navigateurs */
+        min-height: 100dvh;
+        overflow: hidden;        /* aucun défilement sur la page d'entrée */
+    }
+
     /* L'image est toujours affichée en entier (les phrases en haut et en bas
        ne sont jamais coupées). Si l'écran n'a pas exactement ses proportions,
        une version floutée de la même image comble les bords. */
@@ -370,6 +379,13 @@ body.home-page {
         width: min(100vw, 100dvh * 580 / 1228);
         aspect-ratio: 580 / 1228;
         container-type: inline-size;
+
+        /* v6.1 — Position de la balle, en % de l'image 580 x 1228 :
+           centre horizontal, centre vertical, diamètre de la zone tactile.
+           Le diamètre est volontairement plus grand que la balle. */
+        --balle-x: 50%;
+        --balle-y: 50%;
+        --balle-d: 16%;
     }
 
     .mobile-frame img { width: 100%; height: 100%; }
@@ -387,6 +403,42 @@ body.home-page {
     .mobile-enter img { width: 100%; }
 
     .mobile-enter:focus-visible { outline: 1px solid var(--dark-green); }
+
+    /* v6.1 — Zone tactile qui englobe toute la balle */
+    .mobile-ball {
+        position: absolute;
+        left: var(--balle-x);
+        top: var(--balle-y);
+        width: var(--balle-d);
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%);
+        display: block;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        /* Pour régler la position, décommenter la ligne suivante : */
+        /* outline: 1px dashed red; */
+    }
+
+    /* v6.1 — Invitation « Touchez la balle », juste sous la balle.
+       Elle apparaît en fondu après un court instant. Tailles en cqi
+       (% de la largeur de l'image) : le texte suit la taille de l'image. */
+    .mobile-hint {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 1.5cqi;
+        white-space: nowrap;
+        font-size: 4.2cqi;
+        letter-spacing: 0.08em;
+        color: var(--dark-green);
+        opacity: 0;
+        animation: apparition 1.2s ease-out 1.5s forwards;
+    }
+
+    @keyframes apparition {
+        to { opacity: 1; }
+    }
 }
 
 @media (max-width: 600px) {
@@ -428,4 +480,5 @@ body.home-page {
 /* Pas d'animation pour qui l'a désactivée dans son système */
 @media (prefers-reduced-motion: reduce) {
     .enter-button .btn-img-2 { animation: none; }
+    .mobile-hint { animation: none; opacity: 1; }
 }
