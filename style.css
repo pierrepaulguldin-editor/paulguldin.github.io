@@ -386,6 +386,10 @@ body.home-page {
         --balle-x: 50%;
         --balle-y: 50%;
         --balle-d: 16%;
+
+        /* Hauteur du filet (en % de la hauteur de l'image) :
+           la phrase « Touchez la balle » est centrée sur cette ligne */
+        --filet-y: 58%;
     }
 
     .mobile-frame img { width: 100%; height: 100%; }
@@ -419,21 +423,23 @@ body.home-page {
         /* outline: 1px dashed red; */
     }
 
-    /* v6.1 — Invitation « Touchez la balle », juste sous la balle.
-       Elle apparaît en fondu après un court instant. Tailles en cqi
-       (% de la largeur de l'image) : le texte suit la taille de l'image. */
+    /* v6.1 — Invitation « Touchez la balle », en blanc, centrée sur la
+       hauteur du filet et alignée sur la balle. Elle apparaît en fondu
+       presque tout de suite. Taille en cqi (% de la largeur de l'image) :
+       le texte suit la taille de l'image. */
     .mobile-hint {
         position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin-top: 1.5cqi;
+        left: var(--balle-x);
+        top: var(--filet-y);
+        transform: translate(-50%, -50%);
         white-space: nowrap;
-        font-size: 4.2cqi;
+        font-size: 5.4cqi;
         letter-spacing: 0.08em;
-        color: var(--dark-green);
+        color: #FFFFFF;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
         opacity: 0;
-        animation: apparition 1.2s ease-out 1.5s forwards;
+        animation: apparition 0.8s ease-out 0.3s forwards;
     }
 
     @keyframes apparition {
