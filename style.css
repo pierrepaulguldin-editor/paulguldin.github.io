@@ -439,7 +439,7 @@ body.home-page {
         text-decoration: none;
         -webkit-tap-highlight-color: transparent;
         opacity: 0;
-        animation: apparition 1s ease-out 0.5s forwards;
+        animation: apparition 2s ease-out 1s forwards;
     }
 
     @keyframes apparition {
