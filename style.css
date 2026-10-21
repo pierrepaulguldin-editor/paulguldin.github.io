@@ -383,7 +383,7 @@ body.home-page {
         /* v6.1 — Position de la balle, en % de l'image 580 x 1228 :
            centre horizontal, centre vertical, diamètre de la zone tactile.
            Le diamètre est volontairement plus grand que la balle. */
-        --balle-x: 50%;
+        --balle-x: 50.5%;
         --balle-y: 50%;
         --balle-d: 16%;
 
@@ -433,7 +433,7 @@ body.home-page {
         top: var(--filet-y);
         transform: translate(-50%, -50%);
         white-space: nowrap;
-        font-size: 5.4cqi;
+        font-size: 5.1cqi; /* taille de "Touchez la balle ? */
         letter-spacing: 0.08em;
         color: #FFFFFF;
         text-decoration: none;
