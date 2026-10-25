@@ -295,7 +295,7 @@ body.home-page {
    (ajuster top/left si le centre visuel de l'image est décalé) */
 .enter-button {
     position: absolute;
-    top: 48%;              /* texte centré verticalement entre le bas du filet et la ligne de service */
+    top: 49%;              /* texte centré verticalement entre le bas du filet et la ligne de service 48 c'est trop haut */
     left: 50.8%;             /* la ligne blanche centrale du court passe entre le ´ et le 2 */
     width: 37.25%;           /* ≈ 2,5 x la taille d'origine : le texte occupe ~75 % de l'espace disponible */
     transform: translate(-50%, -50%);
