@@ -296,7 +296,7 @@ body.home-page {
 .enter-button {
     position: absolute;
     top: 49.1%;              /* texte centré verticalement entre le bas du filet et la ligne de service */
-    left: 53%;             /* la ligne blanche centrale du court passe entre le ´ et le 2 */
+    left: 51.5%;             /* la ligne blanche centrale du court passe entre le ´ et le 2 */
     width: 37.25%;           /* ≈ 2,5 x la taille d'origine : le texte occupe ~75 % de l'espace disponible */
     transform: translate(-50%, -50%);
 }
